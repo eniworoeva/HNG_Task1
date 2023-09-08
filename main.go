@@ -9,7 +9,7 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.GET("/info", getInfo)
+	r.GET("/api", getInfo)
 	r.Run(":8080")
 }
 
