@@ -22,6 +22,12 @@ func getInfo(c *gin.Context) {
 	// Get the current day of the week
 	currentDay := time.Now().Weekday().String()
 
+	//Get github file url
+	githubFileUrl := "https://github.com/eniworoeva/HNG_Task1/blob/main/main.go"
+
+	//Get github repo url
+	githubRepoUrl := "https://github.com/eniworoeva/HNG_Task1/tree/main"
+
 	// Get the current UTC time with validation of +/-2 hours
 	currentTime := time.Now().UTC()
 	if currentTime.Hour() > 2 && currentTime.Hour() < 22 {
@@ -37,6 +43,8 @@ func getInfo(c *gin.Context) {
 		"current_day": currentDay,
 		"utc_time":    currentTime.Format("2006-01-02T15:04:05Z"),
 		"track":       track,
+		"github_file_url": githubFileUrl,
+		"github_repo_url": githubRepoUrl,
 		"status_code": http.StatusOK,
 	}
 	c.JSON(http.StatusOK, response)
